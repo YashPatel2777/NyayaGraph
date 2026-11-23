@@ -58,7 +58,8 @@ Skim the Assumptions section once, then search it by id when the code mentions s
 - Phase 4 exit: recall at 8 0.865 on 31 labelled questions, zero unverified citations, p95 latency 8.2 s, user-isolation tests pass, and `pytest -q` 514 passed.
 - Phase 5 (API hardening) is done: rate limits, `/health`, the provision endpoint, a contract test for every error code, and `python -m app.main` binding to `APP_HOST`. `pytest -q`: 559 passed.
 - Phase 6 is done: the soak test (no 500s under load), restart recovery after a forced kill, the log-scrubbing test, and `SETUP.md`. `pytest -q`: 565 passed.
-- Still open for the v1 definition of done: the CI workflow (`.github/workflows/ci.yml`, A-48) is written but has not run yet, because the repository is not on GitHub yet; and `SETUP.md` has not been tried on a clean machine.
+- CI: GitHub Actions (`.github/workflows/ci.yml`, A-48) runs the test suite, golden tests included, on every push and pull request; the first run passed (9 min).
+- Still open for the v1 definition of done: a teammate following `SETUP.md` on a clean Windows machine.
 
 ## Running it
 
