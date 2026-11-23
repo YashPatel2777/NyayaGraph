@@ -1,4 +1,5 @@
 .env
+.env.example   
 data/uploads/
 __pycache__/
 .venv/
@@ -7,7 +8,6 @@ data/legal/uploads/
 
 # Generated or local-only
 provision_index.md
-.env.example   
 *.log
 .vscode/
 .idea/
