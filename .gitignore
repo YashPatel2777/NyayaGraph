@@ -1,5 +1,4 @@
-.env
-.env.example   
+.env 
 data/uploads/
 __pycache__/
 .venv/
