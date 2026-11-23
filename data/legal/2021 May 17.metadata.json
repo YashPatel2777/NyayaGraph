@@ -1,0 +1,22 @@
+{
+  "act_id": "cp-e-commerce-amendment-rules-2021",
+  "title": "The Consumer Protection (E-Commerce) (Amendment) Rules, 2021",
+  "short_title": "Consumer Protection (E-Commerce) (Amendment) Rules, 2021",
+  "year": 2021,
+  "number": "G.S.R. 328(E)",
+  "jurisdiction": "IN",
+  "as_on_date": "2021-05-17",
+  "kind": "rule",
+  "issued_under": {
+    "act_id": "cpa-2019",
+    "sections": [
+      "101"
+    ]
+  },
+  "prescribes_for": null,
+  "amends": {
+    "act_id": "cp-e-commerce-rules-2020",
+    "effective_on": null
+  },
+  "expected_sections": 2
+}

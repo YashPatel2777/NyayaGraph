@@ -1,0 +1,19 @@
+SERVICE HISTORY - Velora Strata EV, VIN VLR9STR25EV004417
+Owner: Anjali Deshmukh
+Workshop: Sahyadri Velora Motors, Service Division, Wakad, Pune
+
+Job card JC-25-0611, opened 14/06/2025, odometer 4,210 km
+Complaint: car loses all power while driving; dashboard shows "Powertrain fault - stop safely".
+Work done: battery management software updated to version 4.2. Car returned 16/06/2025.
+
+Job card JC-25-0902, opened 09/09/2025, odometer 9,870 km
+Complaint: same power loss on the Mumbai-Pune Expressway; car towed to workshop.
+Work done: high-voltage connector replaced under warranty. Car returned 19/09/2025.
+Remark by service advisor: "Fault not reproduced in workshop."
+
+Job card JC-26-0115, opened 21/01/2026, odometer 15,420 km
+Complaint: power loss for the third time; customer reports a near accident.
+Work done: none. Workshop note: "Referred to manufacturer technical team. Parts awaited."
+Car in workshop from 21/01/2026. As on 10/03/2026 the car has not been returned.
+
+Total days the car was in the workshop up to 10/03/2026: 62 days.

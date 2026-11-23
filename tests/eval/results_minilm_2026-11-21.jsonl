@@ -1,0 +1,10 @@
+{"id": "q01", "category": "case_and_legal", "error": null, "latency_ms": 9701, "recall": 0.0, "hits": [], "missed": ["cl:cpa-2019:2:7"], "acceptable_hits": [], "legal_final": ["sec:cpa-2019:92", "cl:cpa-2019:15:2", "sec:cpa-2019:94", "sec:cpa-2019:49", "cl:cpa-2019:2:42", "sec:cpa-2019:59", "cl:cp-e-commerce-rules-2020:6:3", "sec:cpa-2019:89"], "cited": [], "unverified": 0, "intent": "CASE_AND_LEGAL", "intent_ok": true, "confidence": "low", "dropped_citations": 0, "tokens": {"prompt_tokens": 4445, "completion_tokens": 418}}
+{"id": "q02", "category": "case_and_legal", "error": null, "latency_ms": 7879, "recall": 0.5, "hits": ["cl:cpa-2019:39:1"], "missed": ["cl:cpa-2019:2:10"], "acceptable_hits": [], "legal_final": ["sec:cpa-2019:86", "sec:cpa-2019:89", "sec:cpa-2019:91", "sec:cpa-2019:35", "cl:cpa-2019:39:1", "sec:cpa-2019:10", "sec:cpa-2019:82", "cl:cpa-2019:36:2"], "cited": ["cl:cpa-2019:39:1"], "unverified": 0, "intent": "CASE_AND_LEGAL", "intent_ok": true, "confidence": "medium", "dropped_citations": 0, "tokens": {"prompt_tokens": 5956, "completion_tokens": 761}}
+{"id": "q03", "category": "case_and_legal", "error": "QUERY_TIMEOUT"}
+{"id": "q04", "category": "case_and_legal", "error": "QUERY_TIMEOUT"}
+{"id": "q05", "category": "case_and_legal", "error": "QUERY_TIMEOUT"}
+{"id": "q06", "category": "case_and_legal", "error": "QUERY_TIMEOUT"}
+{"id": "q07", "category": "case_and_legal", "error": "QUERY_TIMEOUT"}
+{"id": "q08", "category": "case_and_legal", "error": "QUERY_TIMEOUT"}
+{"id": "q09", "category": "case_and_legal", "error": "QUERY_TIMEOUT"}
+{"id": "q10", "category": "case_and_legal", "error": "QUERY_TIMEOUT"}

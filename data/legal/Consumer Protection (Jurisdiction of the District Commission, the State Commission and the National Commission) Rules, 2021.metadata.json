@@ -1,0 +1,37 @@
+{
+  "act_id": "cp-jurisdiction-rules-2021",
+  "title": "The Consumer Protection (Jurisdiction of the District Commission, the State Commission and the National Commission) Rules, 2021",
+  "short_title": "Consumer Protection (Jurisdiction of the District Commission, the State Commission and the National Commission) Rules, 2021",
+  "year": 2021,
+  "number": "G.S.R. 912(E)",
+  "jurisdiction": "IN",
+  "as_on_date": "2021-12-30",
+  "kind": "rule",
+  "issued_under": {
+    "act_id": "cpa-2019",
+    "sections": [
+      "34",
+      "47",
+      "58"
+    ]
+  },
+  "prescribes_for": [
+    {
+      "rule": "3",
+      "section": "34",
+      "note": "Pecuniary jurisdiction of the District Commission"
+    },
+    {
+      "rule": "4",
+      "section": "47",
+      "note": "Pecuniary jurisdiction of the State Commission"
+    },
+    {
+      "rule": "5",
+      "section": "58",
+      "note": "Pecuniary jurisdiction of the National Commission"
+    }
+  ],
+  "amends": null,
+  "expected_sections": 5
+}

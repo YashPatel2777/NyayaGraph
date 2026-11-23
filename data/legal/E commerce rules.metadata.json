@@ -1,0 +1,19 @@
+{
+  "act_id": "cp-e-commerce-rules-2020",
+  "title": "The Consumer Protection (E-Commerce) Rules, 2020",
+  "short_title": "Consumer Protection (E-Commerce) Rules, 2020",
+  "year": 2020,
+  "number": "G.S.R. 462(E)",
+  "jurisdiction": "IN",
+  "as_on_date": "2020-07-23",
+  "kind": "rule",
+  "issued_under": {
+    "act_id": "cpa-2019",
+    "sections": [
+      "101"
+    ]
+  },
+  "prescribes_for": null,
+  "amends": null,
+  "expected_sections": 8
+}

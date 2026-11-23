@@ -1,0 +1,36 @@
+# Requirements for Enterprise Ingestion Pipeline & Dual-RAG Testing
+
+# Core, Vector Storage & Telemetry
+logfire>=2.0.0
+qdrant-client>=1.9.0
+pydantic>=2.7.0
+pydantic-settings>=2.2.0
+
+# LLM, Vision Forensics & Knowledge Graph Extraction
+openai>=1.40.0
+tiktoken>=0.7.0
+
+# Multimodal Document Loaders (PDF, Office, HTML)
+pymupdf>=1.24.0          # High-fidelity layout analysis, tables & image extraction
+pypdf>=4.2.0             # Standard PDF fallback
+pdfplumber>=0.11.0       # Fallback for complex layouts
+pillow>=10.3.0           # Image handling and forensics cropping
+beautifulsoup4>=4.12.0   # HTML parsing and clean-up
+docling>=2.0.0           # Layout-aware document converter
+unstructured[all-docs]>=0.14.0  # Document partitioner for PDF, DOCX, PPTX
+python-docx>=1.1.0       # Word documents
+python-pptx>=1.0.0       # PowerPoint presentations
+
+# Audio Transcription & Speaker Diarization
+# Note: For GPU acceleration on Windows/Linux, install torch with CUDA:
+# pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
+torch>=2.2.0
+torchaudio>=2.2.0
+whisperx>=3.1.1          # Whisper with word-level alignment & diarization bridge
+pyannote.audio>=3.1.1    # Speaker diarization pipeline
+transformers>=4.40.0
+accelerate>=0.28.0
+
+# --- Embeddings & Retrieval Utilities ---
+sentence-transformers>=3.0.0
+numpy>=1.26.0

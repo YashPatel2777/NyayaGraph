@@ -1,0 +1,30 @@
+From: Imran Shaikh
+To: care@swiftdrop.example
+Date: 16/08/2024
+Subject: Consignment SDX-7781-2290 not delivered
+
+My consignment booked on 12 August 2024 was promised for 13 August. Tracking has shown "In transit - Bhiwandi hub" since 13 August. The laptop inside is needed for my client work. Please deliver it immediately.
+
+---
+From: SwiftDrop Care
+To: Imran Shaikh
+Date: 29/08/2024
+Subject: RE: Consignment SDX-7781-2290
+
+Dear customer, your consignment could not be traced at our Bhiwandi hub and is treated as lost. As per clause 9 of our terms, we will pay compensation of Rs. 100. Please share your bank details.
+
+---
+From: Imran Shaikh
+To: care@swiftdrop.example
+Date: 30/08/2024
+Subject: RE: Consignment SDX-7781-2290
+
+I do not accept Rs. 100 for a laptop worth Rs. 74,990 that you lost. Your staff told me insurance was not needed. I want the full value and refund of the freight. I also lost a client project worth Rs. 40,000 because the laptop did not reach Mumbai.
+
+---
+From: SwiftDrop Grievance Cell
+To: Imran Shaikh
+Date: 03/12/2024
+Subject: Final reply - SDX-7781-2290
+
+After review, the Company's decision is final. Compensation is limited to Rs. 100 as per the terms accepted by you at booking. This complaint is closed.

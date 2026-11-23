@@ -1,0 +1,49 @@
+# Legal GraphRAG Platform, Python 3.11.
+# torch is NOT listed: install the CUDA build of PyTorch first (06-file-structure.md).
+# Install torchvision from the same index in the same command; otherwise easyocr pulls
+# torchvision from PyPI, which replaces CUDA torch with a CPU build:
+#   pip install torch==2.11.0 torchvision==0.26.0 --index-url https://download.pytorch.org/whl/cu128
+# then: pip install -r requirements.txt && ollama pull nomic-embed-text
+
+# torch 2.11 requires setuptools<82
+setuptools<82
+
+# API (0)
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9
+pydantic>=2.7
+pydantic-settings>=2.3
+python-dotenv>=1.0
+anyio>=4.4
+httpx>=0.27
+
+# Orchestration and LLM (0)
+langgraph>=0.2
+langchain-core>=0.3
+langchain-groq>=0.2
+tenacity>=8.3
+
+# Store (0): Neo4j is the only database
+neo4j>=5.20
+
+# Retrieval and media (0)
+flashrank>=0.2.9
+faster-whisper>=1.0.3
+easyocr>=1.7.1
+pymupdf>=1.24
+pypdf>=4.2
+# AES-encrypted PDFs (often with an empty user password) need it to open (A-19).
+cryptography>=42
+
+# Utilities (5, Phase 0)
+rapidfuzz>=3.9
+slowapi>=0.1.9
+filetype>=1.2
+
+# Observability (0)
+logfire>=0.50
+
+# Tests (5, Phase 0)
+pytest>=8.2
+pytest-asyncio>=0.23

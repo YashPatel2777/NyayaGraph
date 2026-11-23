@@ -1,0 +1,13 @@
+.env
+data/uploads/
+__pycache__/
+.venv/
+.pytest_cache/
+data/legal/uploads/
+
+# Generated or local-only
+provision_index.md
+.env.example   
+*.log
+.vscode/
+.idea/
