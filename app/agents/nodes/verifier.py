@@ -29,6 +29,7 @@ from app.services.retrieval.scope import CaseScope, ScopedGraph
 NO_PROVISION_NOTE = "No supporting provision was retrieved."  # R-23
 NO_PROVISION_NOTE_INTENTS = ("LEGAL_ONLY", "CASE_AND_LEGAL")  # SC-18
 EXCERPT_CHARS = 600  # 3.5
+RELEVANCE_MAX_CHARS = 500  # 3.5: Provision.relevance max_length
 FACT_SUPPORT_MIN = 0.6  # SC-16: share of a fact's content words found in its chunk
 STEM_CHARS = 5  # A-40: 'refused' and 'refuses' match on their first 5 letters
 
@@ -141,17 +142,24 @@ async def verifier(state: AgentState, config: RunnableConfig, *, deps: QueryDeps
     with timed(trace, "verify"):
         wanted = [labels["chunks"].get(f["source"]) for f in reply["relevant_facts"]]
         sources = await _sources(deps, state, [c for c in labels["chunks"].values() if c in given_chunks])
+        names = {label: chunk_name(sources[cid]) for label, cid in labels["chunks"].items()
+                 if cid in sources and sources[cid].get("filename")}
+        names.update({label: given_provisions[pid]["citation"] for label, pid in labels["provisions"].items()
+                      if pid in given_provisions})
         facts: list[Fact] = []
         for f, chunk_id in zip(reply["relevant_facts"], wanted):
             src = sources.get(chunk_id) if chunk_id in given_chunks else None
             if src is None or src.get("filename") is None:
                 dropped += 1
                 continue
-            if not fact_supported(f["fact"], given_chunks[chunk_id]["text"]):  # SC-16
+            # SC-17 (extended 2026-11-25): a label inside a fact is removed, not named,
+            # because the fact's source is shown beside it. Checked after removal (SC-16).
+            fact_text = replace_labels(f["fact"], {})
+            if not fact_text or not fact_supported(fact_text, given_chunks[chunk_id]["text"]):  # SC-16
                 dropped += 1
                 continue
             facts.append(Fact(
-                fact=f["fact"], source_chunk_id=chunk_id,
+                fact=fact_text, source_chunk_id=chunk_id,
                 source=SourceRef(doc_id=src["doc_id"], filename=src["filename"], page=src.get("page"),
                                  start_sec=src.get("start_sec"), end_sec=src.get("end_sec")),
             ))
@@ -167,16 +175,17 @@ async def verifier(state: AgentState, config: RunnableConfig, *, deps: QueryDeps
             if pid in cited:  # the same provision twice: keep the first
                 continue
             cited.add(pid)
+            # SC-17 (extended 2026-11-25): labels in relevance are named like the prose
+            # fields; if naming would pass the 500-character limit (3.5), they are removed.
+            relevance = replace_labels(p["relevance"], names)
+            if len(relevance) > RELEVANCE_MAX_CHARS:
+                relevance = replace_labels(p["relevance"], {})
             provisions.append(Provision(
                 provision_id=pid, act=item["act_short_title"], act_as_on=item["act_as_on"],
                 citation=item["citation"], status=item["status"], relation=p["relation"],
-                relevance=p["relevance"], excerpt=excerpt(item["text"]),
+                relevance=relevance, excerpt=excerpt(item["text"]),
             ))
 
-    names = {label: chunk_name(sources[cid]) for label, cid in labels["chunks"].items()
-             if cid in sources and sources[cid].get("filename")}
-    names.update({label: given_provisions[pid]["citation"] for label, pid in labels["provisions"].items()
-                  if pid in given_provisions})
     model_gaps = [replace_labels(g, names) for g in reply["gaps_or_conflicts"]]  # SC-17
     gaps = list(dict.fromkeys(trace["notes"] + [g for g in model_gaps if g]))
     if not provisions and state["intent"] in NO_PROVISION_NOTE_INTENTS and NO_PROVISION_NOTE not in gaps:

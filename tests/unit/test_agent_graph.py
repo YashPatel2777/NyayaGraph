@@ -216,6 +216,31 @@ async def test_unsupported_fact_is_dropped_and_labels_in_prose_are_replaced() ->
     assert st["messages"][-1]["content"] == a["summary"]
 
 
+async def test_labels_in_facts_are_removed_and_in_relevance_named() -> None:
+    # SC-17 extended (2026-11-25): seen live as "...for the vehicle (C2)." in a fact.
+    reply = {
+        "summary": "s",
+        "relevant_facts": [{"fact": "Bought a fridge for 42,000 rupees (C2).", "source": "C1"},
+                           {"fact": "C1", "source": "C1"}],
+        "applicable_provisions": [{"source": "P1", "relation": "direct",
+                                   "relevance": "P1 sets the limit for the purchase in C1."},
+                                  {"source": "P2", "relation": "referenced", "relevance": "P1 " + "x" * 490}],
+        "analysis": "a",
+        "gaps_or_conflicts": [],
+    }
+    st = await _run(_deps(llm=FakeLLM(reply=reply)))
+    a = st["analysis"]
+    # The label is stripped; a fact that was only a label is dropped (counted).
+    assert [f["fact"] for f in a["relevant_facts"]] == ["Bought a fridge for 42,000 rupees."]
+    assert st["trace"]["counts"]["dropped_citations"] == 1
+    provs = a["applicable_provisions"]
+    cite = provs[0]["citation"]
+    assert provs[0]["relevance"] == f"{cite} sets the limit for the purchase in invoice.pdf, page 1."
+    # Naming would pass the 500-character limit (3.5), so the label is removed instead.
+    assert len(provs) == 2
+    assert provs[1]["relevance"] == "x" * 490
+
+
 async def test_conversational_goes_straight_to_responder_without_material() -> None:
     neo, llm = FakeNeo4j(), FakeLLM(intent="CONVERSATIONAL")
     await _run(_deps(neo=neo, llm=llm), question="hello")

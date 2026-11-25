@@ -124,6 +124,17 @@ Useful endpoints:
 - `http://127.0.0.1:8000/docs`: the OpenAPI page (dev only);
 - `POST /v1/cases`, then `POST /v1/cases/{case_id}/documents` (multipart field `file`), then `POST /v1/query` with `{"question": "...", "case_id": "..."}`.
 
+### Web UI (optional, SC-24)
+
+With the service running, in a second terminal (same virtual environment):
+
+```
+pip install -r requirements-ui.txt
+streamlit run ui/streamlit_app.py
+```
+
+Run it from the project root so `.streamlit/config.toml` is read. It opens on `http://127.0.0.1:8501`. The sidebar shows backend health and lets you create or pick a case; the tabs let you ask questions, upload documents and watch them process, and delete a case. Click **Full text** on a provision to see the statute text and its links. If the API runs elsewhere, set `UI_API_BASE_URL` (default `http://127.0.0.1:8000`).
+
 ## 10. Tests
 
 | Command | What runs | Needs |

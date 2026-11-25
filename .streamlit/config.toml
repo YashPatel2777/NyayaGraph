@@ -1,0 +1,29 @@
+# Streamlit settings for the NyayaGraph UI (SC-24). Read when `streamlit run` is started
+# from the project root.
+
+[server]
+address = "127.0.0.1"      # 3.2: local only, like the API
+port = 8501
+maxUploadSize = 200        # MB; the largest 3.4 limit (audio)
+headless = true
+
+[browser]
+gatherUsageStats = false   # nothing leaves the machine
+
+[client]
+toolbarMode = "minimal"
+showErrorDetails = "none"  # tracebacks stay in the terminal
+
+[theme]
+# Dark mode for the whole UI. The navy accent of the light theme is too dark on a dark
+# background, so the accent is a lighter blue from the same family.
+base = "dark"
+primaryColor = "#6FA3E0"
+backgroundColor = "#0F1720"
+secondaryBackgroundColor = "#18222E"
+textColor = "#E6EDF5"
+borderColor = "#2C3A4A"
+
+[theme.sidebar]
+backgroundColor = "#131C27"
+secondaryBackgroundColor = "#1C2835"

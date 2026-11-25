@@ -122,6 +122,13 @@ legal-graphrag/
 │   ├── init_neo4j.py                  # DDL from 2.2, idempotent                                                         [Ph 1]
 │   └── ingest_legal.py                # CLI wrapper: python -m scripts.ingest_legal data/legal/CPA2019.pdf --act-id cpa-2019 ... [Ph 2]
 │
+├── ui/                                # SC-24: Streamlit web UI; an HTTP client of 3.4 only, never imports app/
+│   ├── api_client.py                  # httpx wrapper over the 3.4 endpoints; 3.3 envelope -> ApiError
+│   ├── rate_budget.py                 # Groq tokens-per-minute cooldown estimate (O-6), pure functions
+│   └── streamlit_app.py               # sidebar (health, cases), Ask, Documents, Case tabs; provision dialog
+├── .streamlit/config.toml             # SC-24: binds 127.0.0.1:8501, usage statistics off, 200 MB uploads
+├── requirements-ui.txt                # SC-24: streamlit (installed on top of requirements.txt)
+│
 ├── tests/
 │   ├── conftest.py                    # throwaway Neo4j database fixture
 │   ├── unit/                          # scope, embeddings, Lucene escaping, RRF, id builders, verifier
@@ -162,7 +169,7 @@ api  ->  agents / ingestion  ->  services  ->  schemas
 | Portkey or any LLM gateway | Groq is called directly through langchain-groq |
 | Gemini or sentence-transformers fallback | One embedding model only, nomic-embed-text (R-08) |
 | `auth/`, JWT code, role checks, user table | No authentication in v1 (3.2) |
-| `ui/` or `frontend/` | Out of scope for v1 |
+| `frontend/`, a UI inside `app/` | Out of scope for v1. SC-24 adds `ui/` (Streamlit, an HTTP client of the API only; see the tree) |
 | Office and HTML loaders | Allowed upload types are PDF, image, audio and text only (3.4) |
 | `concept_extractor.py`, judgment ingestion | Deferred (05-roadmap.md, Deferred) |
 

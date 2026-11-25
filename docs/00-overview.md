@@ -12,7 +12,7 @@ Audience: backend, data and integration engineers.
 
 **In scope:** legal ingestion, case ingestion (PDF, image, audio, text), hybrid vector + full-text + graph retrieval, structured answer generation, asynchronous jobs, per-case data scoping.
 
-**Out of scope for v1:** authentication and role-based access (v1 runs as one fixed local user, see 3.2), guardrails (a no-op hook is specified in 1.3), a web UI, multi-region deployment, fine-tuning, jurisdictions other than India.
+**Out of scope for v1:** authentication and role-based access (v1 runs as one fixed local user, see 3.2), guardrails (a no-op hook is specified in 1.3), a web UI inside the backend (SC-24 adds a separate Streamlit client in `ui/` that uses only the REST API), multi-region deployment, fine-tuning, jurisdictions other than India.
 
 | Concern | Decision |
 | --- | --- |

@@ -60,6 +60,7 @@ Skim the Assumptions section once, then search it by id when the code mentions s
 - Phase 6 is done: the soak test (no 500s under load), restart recovery after a forced kill, the log-scrubbing test, and `SETUP.md`. `pytest -q`: 565 passed.
 - CI: GitHub Actions (`.github/workflows/ci.yml`, A-48) runs the test suite, golden tests included, on every push and pull request; the first run passed (9 min).
 - Still open for the v1 definition of done: a teammate following `SETUP.md` on a clean Windows machine.
+- Web UI (SC-24, 25 November 2026): a Streamlit app in `ui/` that talks to the API over HTTP. Start the API, then `streamlit run ui/streamlit_app.py` (SETUP.md section 9).
 
 ## Running it
 
